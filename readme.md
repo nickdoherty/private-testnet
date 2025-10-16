@@ -4,7 +4,7 @@
 
 # Private Testnet
 
---
+---
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ sudo apt update
 sudo apt install kurtosis-cli
 ```
 
---
+---
 
 
 ## Bootnode
@@ -37,7 +37,7 @@ mkdir -p ./artifacts/el_cl_genesis_data
 kurtosis files download rocketpool el_cl_genesis_data ./artifacts/el_cl_genesis_data
 ```
 
---
+---
 
 ## Join your node
 
@@ -56,7 +56,7 @@ curl -s -X POST http://localhost:8545 \
       | jq -r '.result.hash'
 0x53baf2a08b050f2eea446792d9f94de592023177ccb0881e14ac8a42c2553e83
 ```
---
+---
 
 ## Helpful commands
 
