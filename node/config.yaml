@@ -1,0 +1,83 @@
+network_params:
+  network: kurtosis
+  network_sync_base_url: "https://cdn-rocketpool.s3.us-west-2.amazonaws.com/rocketpool-testnet.tgz"
+  network_id: "3151908"
+
+participants:
+  - el_type: geth
+    el_image: ethereum/client-go:latest
+    el_log_level: ""
+    el_extra_env_vars: {}
+    el_extra_labels: {}
+    el_extra_mounts: {}
+    el_tolerations: []
+    el_volume_size: 0
+    el_min_cpu: 0
+    el_max_cpu: 0
+    el_min_mem: 0
+    el_max_mem: 0
+    el_extra_params:
+      - "--bootnodes"
+      - "enode://edf16ef10348444679aa8c22cc665f2a44640fb062bc8e051fae8f0cb490fb83ac3bb41ee02c7af1bd7d4bbb05ac5f050249302553516e5d7f125844410b9ed0@57.128.20.31:32000"
+      - "--networkid"
+      - "3151908"
+    # CL
+    cl_type: lighthouse
+    cl_image: sigp/lighthouse:latest
+    cl_log_level: ""
+    cl_extra_env_vars: {}
+    cl_extra_labels: {}
+    cl_extra_mounts: {}
+    cl_tolerations: []
+    cl_volume_size: 0
+    cl_min_cpu: 0
+    cl_max_cpu: 0
+    cl_min_mem: 0
+    cl_max_mem: 0
+    cl_extra_params:
+      - "--boot-nodes"
+      - "enr:-OK4QDwaZ_OyUmkcc6yo_FK101V8ijG6oDUlXf1GMyPXIfIIXxiEHFSYAX1984RJ0uRpqnRFtky2huM5g9KrsQDGjKoHh2F0dG5ldHOIAAAYAAAAAACGY2xpZW501opMaWdodGhvdXNlijguMC4wLXJjLjCEZXRoMpDk6yg0YAAAOP__________gmlkgnY0gmlwhDmAFB-EcXVpY4KA64lzZWNwMjU2azGhAkoE2cCx5k2fBwUo4Ni7iJ5Q6zARbu2DCOf-Es72CiaIiHN5bmNuZXRzD4N0Y3CCgOiDdWRwgoDo"
+    supernode: false
+    use_separate_vc: true
+
+    # Validator (can be left as-is or disabled if not needed)
+    vc_type: lighthouse
+    vc_image: sigp/lighthouse:latest
+    vc_log_level: ""
+    vc_extra_env_vars: {}
+    vc_extra_labels: {}
+    vc_extra_params: []
+    vc_extra_mounts: {}
+    vc_tolerations: []
+    vc_min_cpu: 0
+    vc_max_cpu: 0
+    vc_min_mem: 0
+    vc_max_mem: 0
+    validator_count: null
+    use_remote_signer: false
+
+    # Remote signer (unused by default)
+    remote_signer_type: web3signer
+    remote_signer_image: consensys/web3signer:latest
+    remote_signer_extra_env_vars: {}
+    remote_signer_extra_labels: {}
+    remote_signer_extra_params: []
+    remote_signer_tolerations: []
+    remote_signer_min_cpu: 0
+    remote_signer_max_cpu: 0
+    remote_signer_min_mem: 0
+    remote_signer_max_mem: 0
+
+    node_selectors: {}
+    tolerations: []
+    count: 1
+    snooper_enabled: false
+    ethereum_metrics_exporter_enabled: false
+    xatu_sentry_enabled: false
+    prometheus_config:
+      scrape_interval: 15s
+      labels: {}
+    blobber_enabled: false
+    blobber_extra_params: []
+    builder_network_params: null
+    keymanager_enabled: false
